@@ -1,15 +1,23 @@
 package com.company.Siaod.Stacks;
 
-public class Stacksofstring {
+import java.util.NoSuchElementException;
+
+public class StacksofItems<Item> {
+
     private Node first = null;
     int size = 0;
 
     private class Node {
-        String item;
+        Item item;
         Node next;
     }
 
-    public void push (String item) {
+    public Item peek() {
+        if (isEmpty()) throw  new NoSuchElementException ("Stack underflow");
+        return first.item;
+    }
+
+    public void push (Item item) {
         size++;
         Node oldFirst = first;
         first = new Node ();
@@ -17,14 +25,12 @@ public class Stacksofstring {
         first.next = oldFirst;
     }
 
-    public String pop() {
-        if(!isEmpty())   {
+    public Item pop() {
         size--;
-        String item = first.item;
+        Item item = first.item;
         first = first.next; //gc works here
         return item;
-    }
-    return "";
+
 }
 boolean isEmpty (){ return first == null; }
 }
