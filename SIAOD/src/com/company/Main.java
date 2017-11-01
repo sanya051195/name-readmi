@@ -1,6 +1,7 @@
 package com.company;
 
 
+import com.company.Siaod.Stacks.StacksofItems;
 import com.company.Siaod.Stacks.Stacksofstring;
 
 import java.io.IOException;
@@ -9,18 +10,17 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void Main(String[] args) {
-    }
 
-    private static void StachOfStrings(Scanner in, PrintStream out) {
 
-        Stacksofstring stack = new Stacksofstring();
+    private static void StacksofItems(Scanner in, PrintStream out) {
+
+        StacksofItems<Integer> stack = new StacksofItems();
         while (in.hasNext()) {
             String s = in.next();
-            if ((s.equals("-"))) {
+            if ((s.equals("0"))) {
                 out.print(stack.pop() + " ");
             } else {
-                stack.push(s);
+                stack.push(Integer.parseInt(s));
             }
         }
     }
@@ -29,6 +29,6 @@ public class Main {
         //to br or not to - br - - that - - - is
     Scanner in = new Scanner (System.in);
     PrintStream out = System.out;
-    StachOfStrings(in,out);
+        StacksofItems(in,out);
     }
 }
